@@ -2,6 +2,10 @@
 #include "new_plan.h"
 #include <unistd.h>
 
+
+
+//Esse arquivo a gnt n discutiu btw
+
 void clean_environment(cleaner *C, enviroment E)
 {
     int room_clean = 0;
