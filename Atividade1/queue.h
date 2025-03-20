@@ -3,16 +3,15 @@
 
 typedef struct Node{
     struct Node* next;
-    place val;
-    int time;
-}Node;
-
+    place val; //Local que o nó armazena
+}Node; //Struct para o nó
+ 
 
 typedef struct{
     int size;
     Node *front;
     Node *rear;
-}Queue;
+}Queue; //struct para a ila
 
 Queue newQueue();
 

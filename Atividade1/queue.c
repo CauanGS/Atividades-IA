@@ -1,18 +1,20 @@
 #include "queue.h"
 
-
+//Cria nova fila
 Queue newQueue(){
-    Queue q;
+    Queue q; 
     q.front = NULL;
     q.rear = NULL;
     q.size = 0; 
     return q;
 }
 
+//Verifica se a fila está vazia ou seja com nenhum elemento
 int queue_empty(Queue* q){
     return q->size == 0;
 }
 
+//Insere o nó
 int queue_insert(Queue* q,place p){
     
     Node* node = malloc(sizeof(struct Node));
@@ -34,6 +36,7 @@ int queue_insert(Queue* q,place p){
     return 1;
 }
 
+//Retira o nó da frente
 int queue_pop(Queue* q){
     if(queue_empty(q)){
         return 0;
@@ -45,6 +48,7 @@ int queue_pop(Queue* q){
     return 1;
 }
 
+//Retorna o valor do nó de cima com  isso
 int queue_top(Queue* q, place* elem){
     if(queue_empty(q)){
         return 0;
@@ -53,6 +57,7 @@ int queue_top(Queue* q, place* elem){
     return 1;
 }
 
+//Deleta a fila
 void delQueue(Queue* q){
     if(q == NULL){
         return;

@@ -5,7 +5,7 @@
 
 
 //Esse arquivo a gnt n discutiu btw
-
+//N DISCUTIU
 void clean_environment(cleaner *C, enviroment E)
 {
     int room_clean = 0;
@@ -15,13 +15,15 @@ void clean_environment(cleaner *C, enviroment E)
 
 
 
-        // Checa se bateria atingiu limite crítico
 
         place target = {-1, -1, -1};
+
+        //Verifica se achou sujeira
         int found_dirt = searchDirt(C, E, &target);
-        if (found_dirt)
+        if (found_dirt) //Caso achou
         {
             
+            //Verifica se tem bateria suficiente
             if (C->battery < E.h + E.w)
             {
                 int p = C->whereCleaner->row;
@@ -32,11 +34,13 @@ void clean_environment(cleaner *C, enviroment E)
                 goTarget(C, E, &E.grid[p][t]);
             }
             
+            //Vai para o alvo
             goTarget(C, E, &target);
-            clean(C);
+            clean(C); //limpa
             printSimulation(*C, E);
         }
         else{
+            //Se não achou, a sala está limpa
             room_clean = 1;
         }
     }

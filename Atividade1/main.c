@@ -20,7 +20,7 @@ int main(){
 
     //Limpeza do ambiente
     //cleanEnviroment(&C,E);
-    clean_environment(&C,E);
+    clean_environment(&C,E); //Seria o novo plano com o sensor
     printf("Número total de ações executadas pelo agente: %d \n",C.numActions);
 
     delEnviroment(&E);

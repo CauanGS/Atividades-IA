@@ -9,7 +9,7 @@
 /*------------------------------------------------------------------------------
     Funções básicas do ambiente
 ------------------------------------------------------------------------------*/
-
+ 
 enviroment newEnviroment(int h, int w){
     enviroment E;
     E.h = h; E.w = w;
@@ -192,14 +192,15 @@ void printSimulation(cleaner C, enviroment E){
     sleep(1);
 }
 
-//Procura pela sujeira utilizando BFS
+//Função que procura pela sujeira utilizando BFS
 int searchDirt(cleaner* C, enviroment E, place* pl){
-
+    
+    //Inicializa fila
     Queue q = newQueue();
     //Vetor se o nó foi visitado ou não
     int visited[E.h][E.w];
     
-    int when[E.h][E.w];
+    //int when[E.h][E.w];
 
     for(int i = 0;i < E.h;i++){
         for(int j = 0;j < E.w;j++){
@@ -207,34 +208,35 @@ int searchDirt(cleaner* C, enviroment E, place* pl){
         }
     }
 
-    for(int i = 0;i < E.h;i++){
+    /*for(int i = 0;i < E.h;i++){
         for(int j = 0;j < E.w;j++){
             when[i][j] = 0;
         }
-    }
+    }*/
         
     queue_insert(&q,*C->whereCleaner);
     place p = {-1,-1,-1};
 
-    //#
+    /*
     int distance[E.h][E.w];
     for(int i = 0;i < E.h;i++){
         for(int j = 0;j < E.w;j++){
             distance[i][j] = abs(C->whereCleaner->row - i) + abs(C->whereCleaner->col - j);
         }
     }
+    */
+    
 
-    //#
-
-    int k  = 1;
+    
+    // int k  = 1;
     while(!queue_empty(&q)){
         queue_top(&q,&p);
         queue_pop(&q);
         
         visited[p.row][p.col] = 1;
-        when[p.row][p.col] = k++;
+        // when[p.row][p.col] = k++;
 
-        for(int i = 0;i < E.h;i++){
+        /*for(int i = 0;i < E.h;i++){
             for(int j = 0;j < E.w;j++){
                 printf("%d ",when[i][j]);
             }
@@ -245,12 +247,12 @@ int searchDirt(cleaner* C, enviroment E, place* pl){
             printf("\n");
         }
         printf("\n");
+        */
         
-        sleep(1);
-
+        //Se achou sujeira
         if(p.dirt){
-            *pl = p;
-            delQueue(&q);
+            *pl = p; //ponteiro para buscar
+            delQueue(&q); //Deleta a fila
             return 1;
         }
                 
