@@ -49,7 +49,7 @@ int queue_pop(Queue* q){
 }
 
 //Retorna o valor do nó de cima com  isso
-int queue_top(Queue* q, place* elem){
+int queue_front(Queue* q, place* elem){
     if(queue_empty(q)){
         return 0;
     }

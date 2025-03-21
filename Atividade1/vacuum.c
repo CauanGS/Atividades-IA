@@ -230,7 +230,7 @@ int searchDirt(cleaner* C, enviroment E, place* pl){
     
     // int k  = 1;
     while(!queue_empty(&q)){
-        queue_top(&q,&p);
+        queue_front(&q,&p);
         queue_pop(&q);
         
         visited[p.row][p.col] = 1;

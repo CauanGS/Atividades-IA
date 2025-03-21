@@ -18,5 +18,5 @@ Queue newQueue();
 int queue_empty(Queue* q);
 int queue_insert(Queue* q, place p);
 int queue_pop(Queue* q);
-int queue_top(Queue* q, place* elem);
+int queue_front(Queue* q, place* elem);
 void delQueue(Queue* q);
