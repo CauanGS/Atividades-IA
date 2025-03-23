@@ -1,34 +1,46 @@
 #include "queue.h"
 
-//Cria nova fila
-Queue newQueue(){
-    Queue q; 
+Queue newQueue()
+/*
+    Cria nova fila
+*/
+{
+    Queue q;
     q.front = NULL;
     q.rear = NULL;
-    q.size = 0; 
+    q.size = 0;
     return q;
 }
 
-//Verifica se a fila está vazia ou seja com nenhum elemento
-int queue_empty(Queue* q){
+int queue_empty(Queue *q)
+/*
+    Verifica se a fila está vazia
+*/
+{
     return q->size == 0;
 }
 
-//Insere o nó
-int queue_insert(Queue* q,place p){
-    
-    Node* node = malloc(sizeof(struct Node));
-    if(node == NULL){
+int queue_insert(Queue *q, place p)
+/*
+    Insere novo nó na fila
+*/
+{
+
+    Node *node = malloc(sizeof(struct Node));
+    if (node == NULL)
+    {
         printf("Não foi possível alocar memória para o nó\n");
         return 0;
     }
     node->val = p;
     node->next = NULL;
-    if(queue_empty(q)){
+    if (queue_empty(q))
+    {
         q->front = node;
         q->rear = node;
     }
-    else{
+    else
+    {
         q->rear->next = node;
         q->rear = node;
     }
@@ -36,34 +48,47 @@ int queue_insert(Queue* q,place p){
     return 1;
 }
 
-//Retira o nó da frente
-int queue_pop(Queue* q){
-    if(queue_empty(q)){
+int queue_pop(Queue *q)
+/*
+    Remove o nó da frente
+*/
+{
+    if (queue_empty(q))
+    {
         return 0;
     }
     q->size--;
-    Node* curr = q->front;
+    Node *curr = q->front;
     q->front = q->front->next;
     free(curr);
     return 1;
 }
 
-//Retorna o valor do nó de cima com  isso
-int queue_front(Queue* q, place* elem){
-    if(queue_empty(q)){
+int queue_front(Queue *q, place *elem)
+/*
+    Retorna o valor do nó da frente
+*/
+{
+    if (queue_empty(q))
+    {
         return 0;
     }
     *elem = q->front->val;
     return 1;
 }
 
-//Deleta a fila
-void delQueue(Queue* q){
-    if(q == NULL){
+void delQueue(Queue *q)
+/*
+    Deleta a fila
+*/
+{
+    if (q == NULL)
+    {
         return;
     }
-    Node* curr = q->front;
-    while(curr != NULL){
+    Node *curr = q->front;
+    while (curr != NULL)
+    {
         q->front = q->front->next;
         free(curr);
         curr = q->front;

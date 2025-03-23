@@ -19,8 +19,7 @@ int main(){
     cleaner C = newCleaner(E);
 
     //Limpeza do ambiente
-    //cleanEnviroment(&C,E);
-    clean_environment(&C,E); //Seria o novo plano com o sensor
+    clean_environment(&C,E); //Seria o novo plano com o sensor de sujeira
     printf("Número total de ações executadas pelo agente: %d \n",C.numActions);
 
     delEnviroment(&E);

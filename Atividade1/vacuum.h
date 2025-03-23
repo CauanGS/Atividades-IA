@@ -3,6 +3,9 @@
 #include <stdlib.h>
 
 #define MAX_BATTERY 45
+#define TRUE 1
+#define FALSE 0
+#define MOREINFO FALSE //se 1, printa informações extras no terminal
 
 #ifndef VACUUM_H
 #define VACUUM_H
