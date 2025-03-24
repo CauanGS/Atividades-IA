@@ -2,6 +2,16 @@
 #include "new_plan.h"
 #include <unistd.h>
 
+/*
+Código feito por:
+    Alexandre Jun Hayasaka 
+    Cauan Gabriel de Souza
+    Enzo Picelli Stevanato
+    Felipe Pereira de Souza
+    Gabriel Sanches Pinto
+    Hannah Caroline Cavalcanti Santos Andrade
+*/
+
 void clean_environment(cleaner *C, enviroment E)
 /*
     Plano de limpeza do agente que conhece o ambiente e

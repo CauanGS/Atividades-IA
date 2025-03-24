@@ -2,6 +2,16 @@
 #include "vacuum.h"
 #include <stdbool.h>
 
+/*
+Código feito por:
+    Alexandre Jun Hayasaka 
+    Cauan Gabriel de Souza
+    Enzo Picelli Stevanato
+    Felipe Pereira de Souza
+    Gabriel Sanches Pinto
+    Hannah Caroline Cavalcanti Santos Andrade
+*/
+
 typedef struct Node{
     struct Node* next;
     place val; //Local que o nó armazena
