@@ -274,7 +274,7 @@ int searchDirt(cleaner *C, enviroment E, place *pl)
     // Inicializa contador para printar as matrizes auxiliares
 
     while (!queue_empty(&q))
-    //Roda enquanto ouverem sujeiras encontradas na fila
+    //Roda enquanto houverem nós a serem processados na fila
     {
         queue_front(&q, &p);
         queue_pop(&q);

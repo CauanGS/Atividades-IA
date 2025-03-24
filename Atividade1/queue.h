@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "vacuum.h"
+#include <stdbool.h>
 
 typedef struct Node{
     struct Node* next;
@@ -11,7 +12,7 @@ typedef struct{
     int size;
     Node *front;
     Node *rear;
-}Queue; //struct para a ila
+}Queue; //struct para a fila
 
 Queue newQueue();
 
