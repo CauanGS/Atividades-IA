@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 /*
-Código feito por:
+Nomes dos integrantes:
     Alexandre Jun Hayasaka 
     Cauan Gabriel de Souza
     Enzo Picelli Stevanato

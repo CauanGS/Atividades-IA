@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 /*
-Código feito por:
+Nome dos integrantes:
     Alexandre Jun Hayasaka 
     Cauan Gabriel de Souza
     Enzo Picelli Stevanato
