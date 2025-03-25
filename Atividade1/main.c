@@ -1,5 +1,4 @@
 #include "vacuum.h"
-#include "plan.h"
 #include "new_plan.h"
 #include <stdio.h>
 

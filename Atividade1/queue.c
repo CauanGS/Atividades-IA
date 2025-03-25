@@ -30,7 +30,7 @@ int queue_empty(Queue *q)
     return q->size == 0;
 }
 
-int queue_insert(Queue *q, place p)
+int queue_insert(Queue *q, place* p)
 /*
     Insere novo nó na fila
 */
@@ -58,33 +58,22 @@ int queue_insert(Queue *q, place p)
     return 1;
 }
 
-int queue_pop(Queue *q)
+place* queue_pop(Queue *q)
 /*
     Remove o nó da frente
 */
 {
     if (queue_empty(q))
     {
-        return 0;
+        return NULL;
     }
+
+    place* p = q->front->val;
     q->size--;
     Node *curr = q->front;
     q->front = q->front->next;
     free(curr);
-    return 1;
-}
-
-int queue_front(Queue *q, place *elem)
-/*
-    Retorna o valor do nó da frente
-*/
-{
-    if (queue_empty(q))
-    {
-        return 0;
-    }
-    *elem = q->front->val;
-    return 1;
+    return p;
 }
 
 void delQueue(Queue *q)

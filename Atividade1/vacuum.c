@@ -264,9 +264,7 @@ int searchDirt(cleaner *C, enviroment E, place *pl)
     }
 
     // Insere posição inicial na fila
-    queue_insert(&q, *C->whereCleaner);
-
-    place p = {-1, -1, -1};
+    queue_insert(&q, C->whereCleaner);
 
     // Matriz de distâncias
     int distance[E.h][E.w];
@@ -286,12 +284,12 @@ int searchDirt(cleaner *C, enviroment E, place *pl)
     while (!queue_empty(&q))
     //Roda enquanto houverem nós a serem processados na fila
     {
-        queue_front(&q, &p);
-        queue_pop(&q);
+        
+        place* p = queue_pop(&q);
 
-        visited[p.row][p.col] = 1;
+        visited[p->row][p->col] = 1;
 
-        aux[p.row][p.col] = k++;
+        aux[p->row][p->col] = k++;
 
         if (MOREINFO)
         // Printa a matrix auxliar e a matrix de distancia
@@ -313,40 +311,40 @@ int searchDirt(cleaner *C, enviroment E, place *pl)
         }
 
         // Se houver sujeira
-        if (p.dirt)
+        if (p->dirt)
         {
-            *pl = p;      // Ponteiro para buscar
+            *pl = *p;      // Ponteiro para buscar
             delQueue(&q); // Deleta a fila
             return 1;
         }
 
         // A partir da nova posição atual, tenta percorrer posições adjacentes
-        if (p.row + 1 < E.h && !visited[p.row + 1][p.col])
+        if (p->row + 1 < E.h && !visited[p->row + 1][p->col])
         // Baixo
         {
-            queue_insert(&q, E.grid[p.row + 1][p.col]);
-            visited[p.row + 1][p.col] = 1;
+            queue_insert(&q, &E.grid[p->row + 1][p->col]);
+            visited[p->row + 1][p->col] = 1;
         }
 
-        if (p.row - 1 >= 0 && !visited[(p.row - 1)][p.col])
+        if (p->row - 1 >= 0 && !visited[(p->row - 1)][p->col])
         // Cima
         {
-            queue_insert(&q, E.grid[p.row - 1][p.col]);
-            visited[p.row - 1][p.col] = 1;
+            queue_insert(&q, &E.grid[p->row - 1][p->col]);
+            visited[p->row - 1][p->col] = 1;
         }
 
-        if (p.col + 1 < E.w && !visited[p.row][p.col + 1])
+        if (p->col + 1 < E.w && !visited[p->row][p->col + 1])
         // Direita
         {
-            queue_insert(&q, E.grid[p.row][p.col + 1]);
-            visited[p.row][p.col + 1] = 1;
+            queue_insert(&q, &E.grid[p->row][p->col + 1]);
+            visited[p->row][p->col + 1] = 1;
         }
 
-        if (p.col - 1 >= 0 && !visited[p.row][p.col - 1])
+        if (p->col - 1 >= 0 && !visited[p->row][p->col - 1])
         // Esquerda
         {
-            queue_insert(&q, E.grid[p.row][p.col - 1]);
-            visited[p.row][p.col - 1] = 1;
+            queue_insert(&q, &E.grid[p->row][p->col - 1]);
+            visited[p->row][p->col - 1] = 1;
         }
     }
     delQueue(&q);
