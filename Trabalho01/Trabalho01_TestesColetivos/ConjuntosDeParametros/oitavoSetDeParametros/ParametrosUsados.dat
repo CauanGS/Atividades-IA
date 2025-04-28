@@ -1,0 +1,16 @@
+Número de partículas: 50
+Dimensão: 2
+Número máximo de iterações: 1000
+Parâmetros de controle de velocidade:
+c1: 0.50 0.50
+c2: 0.20 0.20
+wmax: 0.80
+wmin: 0.20
+vmax: 20.00
+Número de predadores: 10.00
+lambda: 2.00
+alpha: 1.50
+A0: 1.00
+A1: 1.00
+Dnuc: 0.00
+Drep: 40.00
